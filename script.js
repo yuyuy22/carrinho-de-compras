@@ -13,14 +13,15 @@ function atualizaCarrinho(){
         li = document.createElement('li');
         li.innerHTML = item.nome +'-' + item.preco;
         listaCarrinho.appendChild(li);
-});
-
+        total += item.preco;
+    });
+    totalTexto,innerHTML = 'Total R$' + total.toFixed(2);
 }
 
 botoesAdicionar.forEach(botao => {
     botao.addEventListener("click", () => {
         const nome = botao.getAttribute("data-nome");
-        const preco = botao.getAttribute("data-preco");
+        const preco = parseFloat(botao.getAttribute("data-preco"));
 
 
         const items = {nome, preco}
